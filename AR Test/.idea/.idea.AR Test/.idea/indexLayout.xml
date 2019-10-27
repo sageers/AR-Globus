@@ -16,7 +16,6 @@
       <Path>.idea</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
-      <Path>Temp</Path>
       <Path>builts</Path>
       <Path>obj</Path>
     </explicitExcludes>
