@@ -81,6 +81,7 @@
         <e p="move.cs" t="Include" />
         <e p="StreamingAssets" t="Include">
           <e p="Vuforia" t="Include">
+            <e p="ARGlobus.xml" t="Include" />
             <e p="VuforiaMars_Images.xml" t="Include" />
           </e>
         </e>
