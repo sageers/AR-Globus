@@ -12,29 +12,23 @@ public class move : MonoBehaviour
 
     private Vector3 initalPosition;
     public Vector3 moveToPosition;
-    public bool Move;
+   
     private float step;
     
     private void Start()
     {
+        MoveAllObjects.objectsOnEarth.Add(gameObject);
         initalPosition = transform.localPosition;
         step = speed * Time.deltaTime;
     }
 
-    public void MoveObject()
-    {
-        Move = true;
-
-
-
-        //transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(-0.5f, 1, 0), 0.1f);
-    }
+   
 
     private void Update()
     {
-        if (Move)
+        if (MoveAllObjects.move)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, new Vector3(-0.5f, 1, 0), step);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, moveToPosition, step);
         }
         
        
