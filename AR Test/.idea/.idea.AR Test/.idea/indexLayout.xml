@@ -14,11 +14,11 @@
     </explicitIncludes>
     <explicitExcludes>
       <Path>.idea</Path>
+      <Path>Builts</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>QCAR</Path>
       <Path>Temp</Path>
-      <Path>builts</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>
