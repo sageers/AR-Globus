@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class RayCastHit : MonoBehaviour
 {
+    
+    public Material highlight;
+
+    private MeshRenderer meshRenderer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -33,27 +37,11 @@ public class RayCastHit : MonoBehaviour
         }
  
     }
-//
-//        for (var i = 0; i < Input.touchCount; i++)
-//        {
-//            if (Input.GetTouch(i).phase == TouchPhase.Began)
-//            {
-//                RaycastHit hit;
-//                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-//                
-//                if (Physics.Raycast(ray, out hit))
-//                {
-//                    if (hit.collider != null)
-//                    {
-//                        hit.collider.enabled = false;
-//                    }
-//                }
-//            }
-//        }
 
 
 
-    public Material highlight;
+
+   
 
     private void checkTouch(Vector3 pos)
     {
@@ -61,9 +49,9 @@ public class RayCastHit : MonoBehaviour
         RaycastHit raycastHit;
         if (Physics.Raycast(raycast, out raycastHit))
         {
-            if (raycastHit.collider.CompareTag("Animal"))
+            if (raycastHit.collider.name.Equals(this.name))
             {
-                raycastHit.transform.gameObject.GetComponent<MeshRenderer>().material = highlight;
+                meshRenderer.material = highlight;
             }
         }
     }
