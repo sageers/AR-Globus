@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Sarah\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Sarah\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_AR Test.-827379899.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Sarah\Documents\GitHub\AR-Globus\AR Test" t="IncludeRecursive">
+    <e p="C:\Users\Solom\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Solom\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_AR Test.1593289496.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Solom\OneDrive\Dokumente\GitHub\AR-Globus\AR Test" t="IncludeRecursive">
       <e p="AR Test.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -79,6 +79,8 @@
           <e p="EarthSpinScript.cs" t="Include" />
         </e>
         <e p="move.cs" t="Include" />
+        <e p="MoveAllObjects.cs" t="Include" />
+        <e p="RayCastHit.cs" t="Include" />
         <e p="StreamingAssets" t="Include">
           <e p="Vuforia" t="Include">
             <e p="ARGlobus.xml" t="Include" />
@@ -127,6 +129,7 @@
           </e>
           <e p="Scripts" t="Include">
             <e p="BoundingBoxRenderer.cs" t="Include" />
+            <e p="CustomTrackableEventHandler.cs" t="Include" />
             <e p="DefaultInitializationErrorHandler.cs" t="Include" />
             <e p="DefaultModelRecoEventHandler.cs" t="Include" />
             <e p="DefaultTrackableEventHandler.cs" t="Include" />
@@ -152,6 +155,7 @@
             <e p="VuforiaVideoBackground.cginc" t="Include" />
           </e>
         </e>
+        <e p="Zoom.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
