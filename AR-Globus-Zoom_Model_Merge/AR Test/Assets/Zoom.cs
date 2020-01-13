@@ -23,7 +23,9 @@ public class Zoom : MonoBehaviour
     private Material[] opaqueMats;
 
     public bool zoomIn;
+    private bool zoomOut;
     private bool selected;
+    private bool alphaEnd;
 
     private Vector3 oldPosition;
     // Start is called before the first frame update
@@ -84,7 +86,7 @@ public class Zoom : MonoBehaviour
                     GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
                     Renderer tempRend = tempGO.GetComponent<Renderer>();
                     Material tempMat = tempRend.material;
-                    tempMat.SetFloat("_Mode", 4f);
+                    tempMat.SetFloat("_Mode", 3f);
                     
                     Color32 col = tempRend.material.GetColor("_Color");
                     if (col.a > 6)
@@ -114,10 +116,11 @@ public class Zoom : MonoBehaviour
             if (Vector3.Distance(globe.transform.position, transform.position) >= 0.6)
             {
                 zoomIn = false;
+                zoomOut = true;
             }
 
         }
-        else
+        else if(zoomOut)
         {
             if (currentLandmass.transform.localScale.x > 1)
             {
@@ -127,17 +130,21 @@ public class Zoom : MonoBehaviour
             currentLandmass.transform.localPosition = Vector3.MoveTowards(currentLandmass.transform.localPosition, currentLandmassPos, 0.07f);
             for (int i = 0; i < globe.transform.childCount; i++)
             {
-                if (globe.transform.GetChild(i).gameObject != currentLandmass)
+                if (globe.transform.GetChild(i).gameObject != currentLandmass && !alphaEnd)
                 {
                     GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
                     Renderer tempRend = tempGO.GetComponent<Renderer>();
                     Material tempMat = tempRend.material;
-                    tempMat.SetFloat("_Mode", 4f);
+                    tempMat.SetFloat("_Mode", 3f);
                     
                     Color32 col = tempRend.material.GetColor("_Color");
                     if (col.a <= 249)
                     {
                         col.a += 6;
+                    }
+                    else
+                    {
+                        alphaEnd = true;
                     }
                     
                     tempRend.material.SetColor("_Color", col);
@@ -149,6 +156,24 @@ public class Zoom : MonoBehaviour
                     tempMat.EnableKeyword("_ALPHABLEND_ON");
                     tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                     tempMat.renderQueue = 3000;
+                }else if (globe.transform.GetChild(i).gameObject != currentLandmass && alphaEnd)
+                {
+                    GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
+                    Renderer tempRend = tempGO.GetComponent<Renderer>();
+                    Material tempMat = tempRend.material;
+                    tempMat.SetFloat("_Mode", 0f);
+                    
+                    Color32 col = tempRend.material.GetColor("_Color");
+                    tempRend.material.SetColor("_Color", col);
+                    
+                    tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                    tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                    tempMat.SetInt("_ZWrite", 0);
+                    tempMat.DisableKeyword("_ALPHATEST_ON");
+                    tempMat.EnableKeyword("_ALPHABLEND_ON");
+                    tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    tempMat.renderQueue = 3000;
+                    zoomOut = false;
                 }
             }
         }
