@@ -94,19 +94,22 @@
      <Compile Include="Assets\Lean\Touch\Scripts\LeanGesture.cs" />
      <Compile Include="Assets\Lean\Touch\Scripts\LeanSnapshot.cs" />
      <Compile Include="Assets\Lean\Touch\Scripts\LeanTouch.cs" />
-     <Compile Include="Assets\LowPolyEarth\EarthSpinScript.cs" />
+     <Compile Include="Assets\Scripts\LookAtCamera.cs" />
      <Compile Include="Assets\Scripts\move.cs" />
      <Compile Include="Assets\Scripts\MoveAllObjects.cs" />
      <Compile Include="Assets\Scripts\RayCastHit.cs" />
      <Compile Include="Assets\Scripts\Zoom.cs" />
+     <Compile Include="Assets\Store Assets\LowPolyEarth\EarthSpinScript.cs" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
      <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
      <None Include="Assets\Vuforia\Shaders\VuforiaVB_YUVNV12_YUVNV21.cginc" />
      <None Include="Assets\Shaders\Outlined_Diffuse.shader" />
      <None Include="Assets\Lean\Common\Examples\Shaders\Alpha.shader" />
+     <None Include="Assets\Store Assets\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Unlit.shader" />
      <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
      <None Include="Assets\Vuforia\Shaders\OutlineOpaque.shader" />
+     <None Include="Assets\Store Assets\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Basic.shader" />
      <None Include="Assets\Vuforia\Shaders\VuforiaVB_YUV420P_YUVYV12.cginc" />
      <None Include="Assets\Vuforia\Shaders\VuforiaVideoBackground.cginc" />
      <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
@@ -122,6 +125,7 @@
      <None Include="Assets\Lean\Common\Examples\Shaders\Object.shader" />
      <None Include="Assets\Vuforia\Shaders\VuforiaVB_RGB.cginc" />
      <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
+     <None Include="Assets\Store Assets\Polygonal Particles\Assets\Shaders\GradientBackgroundShader.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Sarah/Documents/GitHub/AR-Globus/AR Test/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
