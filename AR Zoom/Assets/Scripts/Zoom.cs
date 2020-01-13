@@ -1,0 +1,241 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Zoom : MonoBehaviour
+{
+
+    public GameObject globe;
+
+    private GameObject cPosition;
+    private GameObject earth;
+    private GameObject currentLandmass;
+    private GameObject currentLandmassMesh;
+    private Vector3 currentLandmassPos;
+    public GameObject earthTrans;
+    private Material matDefault;
+    public Material matSelected;
+    private Material matOp0;
+    private Material matOp1;
+
+    private Material[] transMats;
+    private Material[] opaqueMats;
+
+    public bool zoomIn;
+    private bool zoomOut;
+    private bool selected;
+    private bool alphaEnd;
+    private bool shrink;
+    private bool expand;
+
+    private Vector3 oldPosition;
+    // Start is called before the first frame update
+    void Start()
+    {
+        //oldPosition = cPosition.transform.localPosition;
+        //transMats = new Material[2] {mat0, mat1};
+        //opaqueMats = new Material[2]{matOp0, matOp1};
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void FixedUpdate()
+    {
+        
+        if (zoomIn)
+        {
+            for (int i = 0; i < globe.transform.childCount; i++)
+            {
+                if (globe.transform.GetChild(i).gameObject != currentLandmass)
+                {
+                    GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
+                    Renderer tempRend = tempGO.GetComponent<Renderer>();
+                    Material tempMat = tempRend.material;
+                    tempMat.SetFloat("_Mode", 3f);
+                    
+                    Color32 col = tempRend.material.GetColor("_Color");
+                    if (col.a > 6)
+                    {
+                        col.a -= 6;
+                    }
+                    
+                    tempRend.material.SetColor("_Color", col);
+                    
+                    tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                    tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                    tempMat.SetInt("_ZWrite", 0);
+                    tempMat.DisableKeyword("_ALPHATEST_ON");
+                    tempMat.EnableKeyword("_ALPHABLEND_ON");
+                    tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    tempMat.renderQueue = 3000;
+                }
+            }
+
+            currentLandmass.transform.localPosition = Vector3.MoveTowards(currentLandmass.transform.localPosition, Vector3.zero, 0.002f);
+            if (Vector3.Distance(currentLandmass.transform.localPosition, Vector3.zero) < 0.001f)
+            {
+                if (!expand)
+                {
+                    if (currentLandmass.transform.localScale.x > 0.01f)
+                    {
+                        float speed = -0.02f;
+                        currentLandmass.transform.localScale = new Vector3(currentLandmass.transform.localScale.x + speed,currentLandmass.transform.localScale.y  + speed,currentLandmass.transform.localScale.z + speed);
+                    }
+                    else
+                    {
+                        for(int i = 0; i < currentLandmass.transform.childCount; i++)
+                        {
+                            if (currentLandmass.transform.GetChild(i).gameObject.activeSelf)
+                            {
+                                currentLandmass.transform.GetChild(i).gameObject.SetActive(false);
+                            }
+                            else
+                            {
+                                currentLandmass.transform.GetChild(i).gameObject.SetActive(true);
+                            }
+                        }
+                        expand = true;
+                    }
+                }
+                else
+                {
+                    if (currentLandmass.transform.localScale.x < 3.5f)
+                    {
+                        float speed = 0.1f;
+                        currentLandmass.transform.localScale = new Vector3(currentLandmass.transform.localScale.x + speed,currentLandmass.transform.localScale.y  + speed,currentLandmass.transform.localScale.z + speed);
+                    }
+                }
+                
+            }
+            
+            
+            if (Vector3.Distance(globe.transform.position, transform.position) >= 0.6)
+            {
+                zoomIn = false;
+                zoomOut = true;
+            }
+
+        }
+        else if(zoomOut)
+        {
+            if (currentLandmass.transform.localScale.x > 1)
+            {
+                currentLandmass.transform.localScale = new Vector3(currentLandmass.transform.localScale.x - 0.1f,currentLandmass.transform.localScale.y  - 0.1f,currentLandmass.transform.localScale.z - 0.1f);
+            }
+
+            currentLandmass.transform.localPosition = Vector3.MoveTowards(currentLandmass.transform.localPosition, currentLandmassPos, 0.07f);
+            for (int i = 0; i < globe.transform.childCount; i++)
+            {
+                if (globe.transform.GetChild(i).gameObject != currentLandmass && !alphaEnd)
+                {
+                    GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
+                    Renderer tempRend = tempGO.GetComponent<Renderer>();
+                    Material tempMat = tempRend.material;
+                    tempMat.SetFloat("_Mode", 3f);
+                    
+                    Color32 col = tempRend.material.GetColor("_Color");
+                    if (col.a <= 249)
+                    {
+                        col.a += 6;
+                    }
+                    else
+                    {
+                        alphaEnd = true;
+                    }
+                    
+                    tempRend.material.SetColor("_Color", col);
+                    
+                    tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                    tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                    tempMat.SetInt("_ZWrite", 0);
+                    tempMat.DisableKeyword("_ALPHATEST_ON");
+                    tempMat.EnableKeyword("_ALPHABLEND_ON");
+                    tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    tempMat.renderQueue = 3000;
+                }else if (globe.transform.GetChild(i).gameObject != currentLandmass && alphaEnd)
+                {
+                    GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
+                    Renderer tempRend = tempGO.GetComponent<Renderer>();
+                    Material tempMat = tempRend.material;
+                    tempMat.SetFloat("_Mode", 0f);
+                    
+                    Color32 col = tempRend.material.GetColor("_Color");
+                    tempRend.material.SetColor("_Color", col);
+                    
+                    tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                    tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                    tempMat.SetInt("_ZWrite", 0);
+                    tempMat.DisableKeyword("_ALPHATEST_ON");
+                    tempMat.EnableKeyword("_ALPHABLEND_ON");
+                    tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    tempMat.renderQueue = 3000;
+                    zoomOut = false;
+                }
+            }
+        }
+        
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            if (Input.touchCount > 0 && Input.touchCount < 2)
+            {
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                {
+                    checkTouch(Input.GetTouch(0).position);
+                }
+            }
+        }
+        else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                checkTouch(Input.mousePosition);
+            }
+        }
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Landmass") && !selected && !zoomIn)
+        {
+            selected = true;
+            currentLandmassMesh = other.gameObject;
+            currentLandmass = other.transform.parent.gameObject;
+            matDefault = currentLandmassMesh.GetComponent<Renderer>().material;
+            currentLandmassMesh.GetComponent<Renderer>().material = matSelected;
+            currentLandmassPos = currentLandmass.transform.localPosition;
+        }
+        
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Landmass") && selected && !zoomIn)
+        {
+            currentLandmassMesh.GetComponent<Renderer>().material = matDefault;
+            selected = false;
+        }
+    }
+
+
+    private void checkTouch(Vector3 pos)
+    {
+        Ray raycast = Camera.main.ScreenPointToRay(pos);
+        RaycastHit raycastHit;
+        if (Physics.Raycast(raycast, out raycastHit))
+        {
+            if (selected && raycastHit.collider.gameObject == currentLandmassMesh)
+            {
+                zoomIn = true;
+                currentLandmassMesh.GetComponent<Renderer>().material = matDefault;
+                alphaEnd = false;
+            }
+        }
+    }
+}

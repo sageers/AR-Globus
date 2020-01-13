@@ -1,0 +1,186 @@
+fileFormatVersion: 2
+guid: f670002f3bbd4a041953f35a9586e7d8
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: afrika
+    100002: afrika 1
+    100004: antarktis
+    100006: asienTr
+    100008: australien
+    100010: bend1Handle
+    100012: bend2Handle
+    100014: bend3Handle
+    100016: bend4Handle
+    100018: bend5Handle
+    100020: eurasien
+    100022: eurasien 1
+    100024: europaTr
+    100026: //RootNode
+    100028: "gr\xF6nland"
+    100030: indonesien
+    100032: japan
+    100034: madagaskar
+    100036: neuseeland
+    100038: nordAmerika
+    100040: ozeanien
+    100042: papuaNeuguinea
+    100044: "s\xFCdAmerika"
+    100046: transform1
+    100048: transform2
+    100050: wasser
+    400000: afrika
+    400002: afrika 1
+    400004: antarktis
+    400006: asienTr
+    400008: australien
+    400010: bend1Handle
+    400012: bend2Handle
+    400014: bend3Handle
+    400016: bend4Handle
+    400018: bend5Handle
+    400020: eurasien
+    400022: eurasien 1
+    400024: europaTr
+    400026: //RootNode
+    400028: "gr\xF6nland"
+    400030: indonesien
+    400032: japan
+    400034: madagaskar
+    400036: neuseeland
+    400038: nordAmerika
+    400040: ozeanien
+    400042: papuaNeuguinea
+    400044: "s\xFCdAmerika"
+    400046: transform1
+    400048: transform2
+    400050: wasser
+    2100000: lambert2
+    2100002: lambert1
+    2100004: lambert3
+    2100006: lambert4
+    2300000: afrika 1
+    2300002: antarktis
+    2300004: australien
+    2300006: eurasien 1
+    2300008: "gr\xF6nland"
+    2300010: indonesien
+    2300012: japan
+    2300014: madagaskar
+    2300016: neuseeland
+    2300018: nordAmerika
+    2300020: papuaNeuguinea
+    2300022: "s\xFCdAmerika"
+    2300024: wasser
+    3300000: afrika 1
+    3300002: antarktis
+    3300004: australien
+    3300006: eurasien 1
+    3300008: "gr\xF6nland"
+    3300010: indonesien
+    3300012: japan
+    3300014: madagaskar
+    3300016: neuseeland
+    3300018: nordAmerika
+    3300020: papuaNeuguinea
+    3300022: "s\xFCdAmerika"
+    3300024: wasser
+    4300000: wasser
+    4300002: "s\xFCdAmerika"
+    4300004: antarktis
+    4300006: nordAmerika
+    4300008: "gr\xF6nland"
+    4300010: afrika
+    4300012: madagaskar
+    4300014: neuseeland
+    4300016: papuaNeuguinea
+    4300018: australien
+    4300020: eurasien
+    4300022: indonesien
+    4300024: japan
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
