@@ -95,10 +95,10 @@
      <Compile Include="Assets\Lean\Touch\Scripts\LeanSnapshot.cs" />
      <Compile Include="Assets\Lean\Touch\Scripts\LeanTouch.cs" />
      <Compile Include="Assets\LowPolyEarth\EarthSpinScript.cs" />
-     <Compile Include="Assets\move.cs" />
-     <Compile Include="Assets\MoveAllObjects.cs" />
-     <Compile Include="Assets\RayCastHit.cs" />
-     <Compile Include="Assets\Zoom.cs" />
+     <Compile Include="Assets\Scripts\move.cs" />
+     <Compile Include="Assets\Scripts\MoveAllObjects.cs" />
+     <Compile Include="Assets\Scripts\RayCastHit.cs" />
+     <Compile Include="Assets\Scripts\Zoom.cs" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
      <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
