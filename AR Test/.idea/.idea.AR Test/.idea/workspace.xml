@@ -9,12 +9,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Lean/Touch/Scripts/LeanTouch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/move.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MoveAllObjects.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LowPolyEarth/EarthSpinScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/RayCastHit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Lean/Touch/Scripts/LeanTouch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Zoom.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shaders/Outlined_Diffuse.shader" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -22,6 +26,8 @@
         <option value="$PROJECT_DIR$/Assets/Twist.cs" />
         <option value="$PROJECT_DIR$/Assets/LowPolyEarth/EarthSpinScript.cs" />
         <option value="$PROJECT_DIR$/Assets/move.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/Outlined_Diffuse.shader" />
+        <option value="$PROJECT_DIR$/Assets/Zoom.cs" />
       </list>
     </option>
   </component>
@@ -80,6 +86,8 @@
       <workItem from="1573591207091" duration="858000" />
       <workItem from="1572180059917" duration="4906000" />
       <workItem from="1573837031242" duration="76000" />
+      <workItem from="1578852735146" duration="12840000" />
+      <workItem from="1578878110533" duration="1561000" />
     </task>
     <servers />
   </component>
