@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Animal
   - Landmass
+  - FlatLandmass
   layers:
   - Default
   - TransparentFX

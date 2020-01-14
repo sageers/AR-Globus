@@ -197,7 +197,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 40.4
+  m_fontSize: 38.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3948,7 +3948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821562240239226722}
   m_LocalRotation: {x: -0, y: 0.29721472, z: -0, w: 0.9548107}
-  m_LocalPosition: {x: -0.008727673, y: -0.009863101, z: 0.048173133}
+  m_LocalPosition: {x: -0.008727673, y: -0.009863116, z: 0.048173133}
   m_LocalScale: {x: 2.2066755, y: 2.2066755, z: 1}
   m_Children: []
   m_Father: {fileID: 1155636724}
@@ -5359,8 +5359,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 48d2d411cc970ab469d6f7c1e47d4863, type: 3}
-  - {fileID: 2100002, guid: 48d2d411cc970ab469d6f7c1e47d4863, type: 3}
+  - {fileID: 2100000, guid: 0fb6b8e75e4a734439afb673afcd9579, type: 2}
+  - {fileID: 2100000, guid: cb27643519dddfb439c77e4d1b6f7cd2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5397,8 +5397,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 48d2d411cc970ab469d6f7c1e47d4863, type: 3}
-  - {fileID: 2100002, guid: 48d2d411cc970ab469d6f7c1e47d4863, type: 3}
+  - {fileID: 2100000, guid: 0fb6b8e75e4a734439afb673afcd9579, type: 2}
+  - {fileID: 2100000, guid: cb27643519dddfb439c77e4d1b6f7cd2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5425,9 +5425,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5848242256908929748}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0026, y: -0.0039, z: -0.0036}
-  m_LocalScale: {x: 1.3843055, y: 1.3843055, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0026000265, y: -0.0039000213, z: -0.0035999818}
+  m_LocalScale: {x: 1.3843058, y: 1.3843055, z: 1}
   m_Children: []
   m_Father: {fileID: 1155636724}
   m_RootOrder: 1
@@ -5477,7 +5477,7 @@ GameObject:
   - component: {fileID: 5848242256906998802}
   m_Layer: 0
   m_Name: afrika_flach 1
-  m_TagString: Untagged
+  m_TagString: FlatLandmass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

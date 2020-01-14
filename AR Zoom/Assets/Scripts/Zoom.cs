@@ -90,7 +90,7 @@ public class Zoom : MonoBehaviour
                     {
                         for(int i = 0; i < currentLandmass.transform.childCount; i++)
                         {
-                            if (currentLandmass.transform.GetChild(i).gameObject.activeSelf)
+                            if (currentLandmass.transform.GetChild(i).CompareTag("Landmass"))
                             {
                                 currentLandmass.transform.GetChild(i).gameObject.SetActive(false);
                             }
@@ -129,53 +129,98 @@ public class Zoom : MonoBehaviour
             }
 
             currentLandmass.transform.localPosition = Vector3.MoveTowards(currentLandmass.transform.localPosition, currentLandmassPos, 0.07f);
-            for (int i = 0; i < globe.transform.childCount; i++)
+            for(int h = 0; h < currentLandmass.transform.childCount; h++)
             {
-                if (globe.transform.GetChild(i).gameObject != currentLandmass && !alphaEnd)
+                GameObject tempGO = currentLandmass.transform.GetChild(h).gameObject;
+                Renderer tempRend = tempGO.GetComponent<Renderer>();
+                Material tempMat = tempRend.material;
+                tempGO.SetActive(true);
+                tempMat.SetFloat("_Mode", 0f);
+                Color32 col = tempRend.material.GetColor("_Color");
+                if(tempGO.CompareTag("Landmass"))
                 {
-                    GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
-                    Renderer tempRend = tempGO.GetComponent<Renderer>();
-                    Material tempMat = tempRend.material;
-                    tempMat.SetFloat("_Mode", 3f);
                     
-                    Color32 col = tempRend.material.GetColor("_Color");
                     if (col.a <= 249)
                     {
                         col.a += 6;
                     }
                     else
                     {
-                        alphaEnd = true;
+                        
                     }
                     
-                    tempRend.material.SetColor("_Color", col);
-                    
-                    tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                    tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                    tempMat.SetInt("_ZWrite", 0);
-                    tempMat.DisableKeyword("_ALPHATEST_ON");
-                    tempMat.EnableKeyword("_ALPHABLEND_ON");
-                    tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                    tempMat.renderQueue = 3000;
-                }else if (globe.transform.GetChild(i).gameObject != currentLandmass && alphaEnd)
-                {
-                    GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
-                    Renderer tempRend = tempGO.GetComponent<Renderer>();
-                    Material tempMat = tempRend.material;
-                    tempMat.SetFloat("_Mode", 0f);
-                    
-                    Color32 col = tempRend.material.GetColor("_Color");
-                    tempRend.material.SetColor("_Color", col);
-                    
-                    tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                    tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                    tempMat.SetInt("_ZWrite", 0);
-                    tempMat.DisableKeyword("_ALPHATEST_ON");
-                    tempMat.EnableKeyword("_ALPHABLEND_ON");
-                    tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                    tempMat.renderQueue = 3000;
-                    zoomOut = false;
                 }
+                else
+                {
+                    if (col.a >= 6)
+                    {
+                        col.a -= 6;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                tempRend.material.SetColor("_Color", col);
+                        
+                tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                tempMat.SetInt("_ZWrite", 0);
+                tempMat.DisableKeyword("_ALPHATEST_ON");
+                tempMat.EnableKeyword("_ALPHABLEND_ON");
+                tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                tempMat.renderQueue = 3000;
+            }
+            for (int i = 0; i < globe.transform.childCount; i++)
+            {
+                if (globe.transform.GetChild(i).gameObject != currentLandmass)
+                {
+                    if(!alphaEnd){
+                        GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
+                        Renderer tempRend = tempGO.GetComponent<Renderer>();
+                        Material tempMat = tempRend.material;
+                        tempMat.SetFloat("_Mode", 3f);
+                        
+                        Color32 col = tempRend.material.GetColor("_Color");
+                        if (col.a <= 249)
+                        {
+                            col.a += 6;
+                        }
+                        else
+                        {
+                            alphaEnd = true;
+                        }
+                        
+                        tempRend.material.SetColor("_Color", col);
+                        
+                        tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                        tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                        tempMat.SetInt("_ZWrite", 0);
+                        tempMat.DisableKeyword("_ALPHATEST_ON");
+                        tempMat.EnableKeyword("_ALPHABLEND_ON");
+                        tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                        tempMat.renderQueue = 3000;
+                    }else
+                    {
+                        GameObject tempGO = globe.transform.GetChild(i).transform.GetChild(0).gameObject;
+                        Renderer tempRend = tempGO.GetComponent<Renderer>();
+                        Material tempMat = tempRend.material;
+                        tempMat.SetFloat("_Mode", 0f);
+                        
+                        Color32 col = tempRend.material.GetColor("_Color");
+                        tempRend.material.SetColor("_Color", col);
+                        
+                        tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                        tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                        tempMat.SetInt("_ZWrite", 0);
+                        tempMat.DisableKeyword("_ALPHATEST_ON");
+                        tempMat.EnableKeyword("_ALPHABLEND_ON");
+                        tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                        tempMat.renderQueue = 3000;
+                        zoomOut = false;
+                    }
+                }
+                
             }
         }
         
