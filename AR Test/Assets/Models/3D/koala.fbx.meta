@@ -1,18 +1,16 @@
 fileFormatVersion: 2
-guid: 4b8722c54f0975a4f9282426a7432ce7
+guid: 968144e9a09271f4eabe9eb08abafdfd
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: group
-    100002: //RootNode
-    100004: pasted__pSphere1
-    100006: pCube1
-    100008: pSphere1
-    400000: group
-    400002: //RootNode
-    400004: pasted__pSphere1
-    400006: pCube1
-    400008: pSphere1
+    100000: //RootNode
+    100002: pasted__pSphere1
+    100004: pCube1
+    100006: pSphere1
+    400000: //RootNode
+    400002: pasted__pSphere1
+    400004: pCube1
+    400006: pSphere1
     2100000: lambert2
     2100002: lambert1
     2100004: lambert3
@@ -23,8 +21,8 @@ ModelImporter:
     3300002: pCube1
     3300004: pSphere1
     4300000: pCube1
-    4300002: pSphere1
-    4300004: pasted__pSphere1
+    4300002: pasted__pSphere1
+    4300004: pSphere1
   externalObjects: {}
   materials:
     importMaterials: 1
