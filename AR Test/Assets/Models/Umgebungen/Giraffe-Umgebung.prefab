@@ -438,10 +438,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Giraffe
+  m_text: GIRAFFE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2dc7ba5b458061747a0fc8d5e60db135, type: 2}
+  m_sharedMaterial: {fileID: 21077568169417604, guid: 2dc7ba5b458061747a0fc8d5e60db135,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -597,8 +598,9 @@ MonoBehaviour:
     Afrika (s\xFCdlich Sahara bis S\xFCdafrika)\nLebensraum: Savanne mit B\xFCschen
     und B\xE4umen"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2dc7ba5b458061747a0fc8d5e60db135, type: 2}
+  m_sharedMaterial: {fileID: 21077568169417604, guid: 2dc7ba5b458061747a0fc8d5e60db135,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -827,8 +829,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: (Giraffa camelopardis)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2dc7ba5b458061747a0fc8d5e60db135, type: 2}
+  m_sharedMaterial: {fileID: 21077568169417604, guid: 2dc7ba5b458061747a0fc8d5e60db135,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1924,16 +1927,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b51664555ea35849ad53a9f1f96daaa, type: 2}
-    - target: {fileID: 1481993963556147469, guid: 9c372824bebd31840aa46e2229906612,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2cea63bdf0294c6469fb9da0ef0c6f30, type: 2}
     - target: {fileID: 1481993963556147471, guid: 9c372824bebd31840aa46e2229906612,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b51664555ea35849ad53a9f1f96daaa, type: 2}
+    - target: {fileID: 1481993963556147469, guid: 9c372824bebd31840aa46e2229906612,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cea63bdf0294c6469fb9da0ef0c6f30, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c372824bebd31840aa46e2229906612, type: 3}
 --- !u!4 &610175950330669691 stripped
