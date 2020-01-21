@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 9197940408219839746}
   - component: {fileID: 6442774468556197330}
   m_Layer: 0
-  m_Name: Umgebung
+  m_Name: Giraffe-Umgebung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1099,7 +1099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4240251484705441943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000014192, y: -0.17, z: 0.0000021314}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 27.390205, y: 0.1726534, z: 27.390205}
   m_Children:
   - {fileID: 1968278171402106164}
@@ -1909,21 +1909,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.07714509
       objectReference: {fileID: 0}
-    - target: {fileID: 1481993963556147469, guid: 9c372824bebd31840aa46e2229906612,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2cea63bdf0294c6469fb9da0ef0c6f30, type: 2}
-    - target: {fileID: 1481993963556147471, guid: 9c372824bebd31840aa46e2229906612,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7b51664555ea35849ad53a9f1f96daaa, type: 2}
-    - target: {fileID: 1481993963556147457, guid: 9c372824bebd31840aa46e2229906612,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7b51664555ea35849ad53a9f1f96daaa, type: 2}
     - target: {fileID: 909713917231439816, guid: 9c372824bebd31840aa46e2229906612,
         type: 3}
       propertyPath: m_RootOrder
@@ -1934,6 +1919,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Giraffe K\xF6rper"
       objectReference: {fileID: 0}
+    - target: {fileID: 1481993963556147457, guid: 9c372824bebd31840aa46e2229906612,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b51664555ea35849ad53a9f1f96daaa, type: 2}
+    - target: {fileID: 1481993963556147469, guid: 9c372824bebd31840aa46e2229906612,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cea63bdf0294c6469fb9da0ef0c6f30, type: 2}
+    - target: {fileID: 1481993963556147471, guid: 9c372824bebd31840aa46e2229906612,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b51664555ea35849ad53a9f1f96daaa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c372824bebd31840aa46e2229906612, type: 3}
 --- !u!4 &610175950330669691 stripped
