@@ -1455,8 +1455,9 @@ MonoBehaviour:
     Pflanzen, Gr\xE4ser\nVerbreitung: Nordamerika, Europa\r\nLebensraum: offene Graslandschaften,
     Steppen\nUrspr\xFCngliche Herkunft: unbekannt\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1ccbacdacdfafa742ac5b023552dffdf, type: 2}
+  m_sharedMaterial: {fileID: 21634921056273046, guid: 1ccbacdacdfafa742ac5b023552dffdf,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1498,7 +1499,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 232
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -4586,8 +4587,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: (bison)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1ccbacdacdfafa742ac5b023552dffdf, type: 2}
+  m_sharedMaterial: {fileID: 21634921056273046, guid: 1ccbacdacdfafa742ac5b023552dffdf,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4741,8 +4743,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Amerikanischer B\xFCffel"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1ccbacdacdfafa742ac5b023552dffdf, type: 2}
+  m_sharedMaterial: {fileID: 21634921056273046, guid: 1ccbacdacdfafa742ac5b023552dffdf,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4935,11 +4938,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3899755862081215968}
     m_Modifications:
-    - target: {fileID: 5706071163051865448, guid: 878ac04acd7fc3242a9e73ae2ded77ff,
-        type: 3}
-      propertyPath: m_Name
-      value: bison-animation
-      objectReference: {fileID: 0}
     - target: {fileID: 5706071163051567432, guid: 878ac04acd7fc3242a9e73ae2ded77ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5009,6 +5007,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0952821
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706071163051865448, guid: 878ac04acd7fc3242a9e73ae2ded77ff,
+        type: 3}
+      propertyPath: m_Name
+      value: bison-animation
       objectReference: {fileID: 0}
     - target: {fileID: 5706071163051567486, guid: 878ac04acd7fc3242a9e73ae2ded77ff,
         type: 3}

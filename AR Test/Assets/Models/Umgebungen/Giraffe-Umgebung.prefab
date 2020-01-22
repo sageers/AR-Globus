@@ -440,8 +440,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GIRAFFE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2dc7ba5b458061747a0fc8d5e60db135, type: 2}
-  m_sharedMaterial: {fileID: 21077568169417604, guid: 2dc7ba5b458061747a0fc8d5e60db135,
+  m_fontAsset: {fileID: 11400000, guid: 1ccbacdacdfafa742ac5b023552dffdf, type: 2}
+  m_sharedMaterial: {fileID: 21634921056273046, guid: 1ccbacdacdfafa742ac5b023552dffdf,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -598,8 +598,8 @@ MonoBehaviour:
     Afrika (s\xFCdlich Sahara bis S\xFCdafrika)\nLebensraum: Savanne mit B\xFCschen
     und B\xE4umen"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2dc7ba5b458061747a0fc8d5e60db135, type: 2}
-  m_sharedMaterial: {fileID: 21077568169417604, guid: 2dc7ba5b458061747a0fc8d5e60db135,
+  m_fontAsset: {fileID: 11400000, guid: 1ccbacdacdfafa742ac5b023552dffdf, type: 2}
+  m_sharedMaterial: {fileID: 21634921056273046, guid: 1ccbacdacdfafa742ac5b023552dffdf,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -829,8 +829,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: (Giraffa camelopardis)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2dc7ba5b458061747a0fc8d5e60db135, type: 2}
-  m_sharedMaterial: {fileID: 21077568169417604, guid: 2dc7ba5b458061747a0fc8d5e60db135,
+  m_fontAsset: {fileID: 11400000, guid: 1ccbacdacdfafa742ac5b023552dffdf, type: 2}
+  m_sharedMaterial: {fileID: 21634921056273046, guid: 1ccbacdacdfafa742ac5b023552dffdf,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
