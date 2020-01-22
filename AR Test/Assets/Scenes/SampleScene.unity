@@ -590,10 +590,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1113099328}
     m_Modifications:
-    - target: {fileID: 1072878899551514, guid: c12a4047a15ab3342abf6d73c8128a4d, type: 3}
-      propertyPath: m_Name
-      value: bush8
-      objectReference: {fileID: 0}
     - target: {fileID: 4563019206223442, guid: c12a4047a15ab3342abf6d73c8128a4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0869083
@@ -649,6 +645,10 @@ PrefabInstance:
     - target: {fileID: 4563019206223442, guid: c12a4047a15ab3342abf6d73c8128a4d, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.037860654
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072878899551514, guid: c12a4047a15ab3342abf6d73c8128a4d, type: 3}
+      propertyPath: m_Name
+      value: bush8
       objectReference: {fileID: 0}
     - target: {fileID: 23418445754335254, guid: c12a4047a15ab3342abf6d73c8128a4d,
         type: 3}
@@ -1801,10 +1801,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1113099328}
     m_Modifications:
-    - target: {fileID: 1945659800257514, guid: 6c844b07dd846a24ebe9fe9f09501d4c, type: 3}
-      propertyPath: m_Name
-      value: trunk14
-      objectReference: {fileID: 0}
     - target: {fileID: 4270870035771972, guid: 6c844b07dd846a24ebe9fe9f09501d4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.1425
@@ -1860,6 +1856,10 @@ PrefabInstance:
     - target: {fileID: 4270870035771972, guid: 6c844b07dd846a24ebe9fe9f09501d4c, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.11304388
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945659800257514, guid: 6c844b07dd846a24ebe9fe9f09501d4c, type: 3}
+      propertyPath: m_Name
+      value: trunk14
       objectReference: {fileID: 0}
     - target: {fileID: 23565430767402630, guid: 6c844b07dd846a24ebe9fe9f09501d4c,
         type: 3}
@@ -2097,7 +2097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1100743253
 MonoBehaviour:
   m_ObjectHideFlags: 0
