@@ -9,6 +9,7 @@ public class EarthSpinScript : MonoBehaviour {
     void OnMouseDrag()
     {
         transform.Rotate(Vector3.up, Input.GetAxis("Mouse X")*-speed, Space.World);
+        transform.Rotate(Vector3.right, Input.GetAxis("Mouse Y")*-speed, Space.World);
     }
 
     void Update() {
