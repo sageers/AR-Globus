@@ -47,7 +47,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 12
+  controlID: 97
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -149,7 +149,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 548}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 13
+  controlID: 98
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 224}
   m_MaxSize: {x: 8004, y: 4024}
   vertical: 0
-  controlID: 14
+  controlID: 99
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -336,20 +336,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/Animated/FBX
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Models/Animated/FBX
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\GitHub\AR-Globus\AR Test
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 183}
-    m_SelectedIDs: cc460000
-    m_LastClickedID: 18124
-    m_ExpandedIDs: 0000000036390000aa3900007c3a0000663b0000b83b00002e3c0000883d0000463e0000443f0000943f0000983f0000ae3f00008a410000b8410000d0410000fe4100007243000032460000c6460000cc4600006c4700007a490000284a0000784b0000844b0000884b0000264f000000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: a82b0000
+    m_LastClickedID: 11176
+    m_ExpandedIDs: 00000000a82b00001c2c0000f02c0000d62d0000282e00009e2e0000fc2f0000ba300000b8310000083200000c32000022320000fe3300002c3400004434000072340000e8350000aa3800003a39000040390000e2390000f03b00009c3c0000ec3d0000f83d0000fc3d00003841000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -377,7 +377,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000036390000aa3900007c3a0000663b0000b83b00002e3c0000883d0000463e0000443f0000943f0000983f0000ae3f0000784100008a410000b8410000d0410000fe41000032460000c6460000cc4600006c4700007a490000284a0000784b0000844b0000884b0000264f0000
+    m_ExpandedIDs: 00000000a82b00001c2c0000f02c0000d62d0000282e00009e2e0000fc2f0000ba300000b8310000083200000c32000022320000fe3300002c3400004434000072340000e8350000aa3800003a39000040390000e2390000f03b00009c3c0000ec3d0000f83d0000fc3d000038410000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -496,9 +496,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 2e3e0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 58d7ffffa6daffff2ee8ffff3ae8ffff46e8ffff98e8ffffeeedffff00eeffff12eeffff1aeeffff2aeeffff3cf1ffff66f4ffff58f6ffff56500000aa530000d8530000
+      m_SelectedIDs: 84fbffff
+      m_LastClickedID: -1148
+      m_ExpandedIDs: 7efbffff84fbffff96fbffffbafbffff6c3f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -554,9 +554,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.50901824, y: 0.16527152, z: 0.0033868551}
+    m_Target: {x: -0.3614912, y: 0.056404248, z: -0.050947666}
     speed: 2
-    m_Value: {x: -0.50901824, y: 0.16527152, z: 0.0033868551}
+    m_Value: {x: -0.3614912, y: 0.056404248, z: -0.050947666}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -584,13 +584,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.04355036, y: -0.10560485, z: 0.0046314667, w: -0.9934527}
+    m_Target: {x: -0.42217293, y: -0.13726833, z: 0.06484504, w: -0.89371276}
     speed: 2
-    m_Value: {x: -0.04354995, y: -0.10560386, z: 0.004631423, w: -0.99344337}
+    m_Value: {x: -0.42217293, y: -0.13726833, z: 0.06484504, w: -0.89371276}
   m_Size:
-    m_Target: 1.463341
+    m_Target: 2.9633408
     speed: 2
-    m_Value: 1.463341
+    m_Value: 2.9633408
   m_Ortho:
     m_Target: 0
     speed: 2
