@@ -79,7 +79,12 @@ ModelImporter:
     7400000: Take 001
     9500000: //RootNode
     13700000: polySurface6
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface1
+    second: {fileID: 2100000, guid: d3ce3ee3ef6e5ee41adba4a5aa5034e6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

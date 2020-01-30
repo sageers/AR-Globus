@@ -75,7 +75,17 @@ ModelImporter:
     9500000: //RootNode
     13700000: pCube2
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fell
+    second: {fileID: 2100000, guid: fa52e8dbde35e944bbf18b4b691e6e68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: felldznkel
+    second: {fileID: 2100000, guid: 26f05447cc873d240aca7afb9122697f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

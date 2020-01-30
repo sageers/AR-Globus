@@ -29,6 +29,7 @@ ModelImporter:
     2100006: lambert4
     2100008: lambert6
     2100010: lambert5
+    2100012: lambert7
     4300000: pPyramid1
     4300002: pCube2
     4300004: pCube3
@@ -45,7 +46,17 @@ ModelImporter:
     13700008: pPyramid1
     13700010: pSphere2
     13700012: pSphere3
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3
+    second: {fileID: 2100000, guid: a9c03f50f5d92f0418eae0ee22bb6450, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert5
+    second: {fileID: 2100000, guid: 3b9101282b10dd14dbdf883bc67fd2df, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
