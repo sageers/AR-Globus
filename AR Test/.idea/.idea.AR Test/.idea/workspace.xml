@@ -9,16 +9,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/move.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/MoveAllObjects.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LowPolyEarth/EarthSpinScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/RayCastHit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Lean/Touch/Scripts/LeanTouch.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Zoom.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LookAtCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vuforia/Scripts/CustomTrackableEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/Outlined_Diffuse.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Zoom.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -28,6 +28,10 @@
         <option value="$PROJECT_DIR$/Assets/move.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/Outlined_Diffuse.shader" />
         <option value="$PROJECT_DIR$/Assets/Zoom.cs" />
+        <option value="$PROJECT_DIR$/Assets/AnimationEvents.cs" />
+        <option value="$PROJECT_DIR$/Assets/Store Assets/LowPolyEarth/EarthSpinScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LookAtCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UIEvents.cs" />
       </list>
     </option>
   </component>
@@ -39,6 +43,7 @@
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="do_not_show_Android_plugin_suggestion" value="true" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -88,6 +93,9 @@
       <workItem from="1573837031242" duration="76000" />
       <workItem from="1578852735146" duration="12840000" />
       <workItem from="1578878110533" duration="1561000" />
+      <workItem from="1579963685412" duration="20000" />
+      <workItem from="1579963739211" duration="2610000" />
+      <workItem from="1580038483842" duration="9651000" />
     </task>
     <servers />
   </component>

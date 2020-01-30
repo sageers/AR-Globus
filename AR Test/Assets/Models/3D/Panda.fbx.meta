@@ -14,6 +14,7 @@ ModelImporter:
     2100000: lambert2
     2100002: lambert3
     2100004: lambert4
+    2100006: phong1
     2300000: pSphere1
     2300002: pSphere3
     2300004: pSphere4
