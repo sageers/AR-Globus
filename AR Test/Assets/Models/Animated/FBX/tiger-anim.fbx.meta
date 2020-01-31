@@ -154,6 +154,7 @@ ModelImporter:
     400146: pasted__pSphere1
     400148: pSphere1
     2100000: lambert1
+    2100002: lambert2
     2300000: pasted__pSphere1
     2300002: pSphere1
     3300000: pasted__pSphere1
@@ -164,7 +165,17 @@ ModelImporter:
     7400000: Take 001
     9500000: //RootNode
     13700000: Tiger_mesh
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 5962c46fe53235142880d710dabc02ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: b0447973531321f4bbd0e635c6296790, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
