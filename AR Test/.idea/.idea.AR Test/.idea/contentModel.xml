@@ -73,13 +73,20 @@
             </e>
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="FragenQuestModus.txt" t="Include" />
+          <e p="FragenQuestModus2.txt" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="AnimationEvents.cs" t="Include" />
           <e p="EarthSpinScript.cs" t="Include" />
+          <e p="EventsSideMenu.cs" t="Include" />
           <e p="LookAtCamera.cs" t="Include" />
           <e p="move.cs" t="Include" />
           <e p="MoveAllObjects.cs" t="Include" />
+          <e p="QuestModeUIEvents.cs" t="Include" />
           <e p="RayCastHit.cs" t="Include" />
+          <e p="ToggleTutorials.cs" t="Include" />
           <e p="UIEvents.cs" t="Include" />
           <e p="Zoom.cs" t="Include" />
         </e>
@@ -180,6 +187,11 @@
           </e>
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+        <e p="UI" t="Include">
+          <e p="Nahrung - Bilder" t="Include">
+            <e p="Quellen Bilder 1.txt" t="Include" />
           </e>
         </e>
         <e p="Vuforia" t="Include">
