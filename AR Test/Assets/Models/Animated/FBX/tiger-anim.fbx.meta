@@ -76,6 +76,8 @@ ModelImporter:
     100140: tail_8_jnt
     100142: //RootNode
     100144: Tiger_mesh
+    100146: pasted__pSphere1
+    100148: pSphere1
     400000: body_back_2_crtl
     400002: body_back_2_jnt
     400004: body_back_ctrl
@@ -149,8 +151,16 @@ ModelImporter:
     400140: tail_8_jnt
     400142: //RootNode
     400144: Tiger_mesh
+    400146: pasted__pSphere1
+    400148: pSphere1
     2100000: lambert1
+    2300000: pasted__pSphere1
+    2300002: pSphere1
+    3300000: pasted__pSphere1
+    3300002: pSphere1
     4300000: Tiger_mesh
+    4300002: pasted__pSphere1
+    4300004: pSphere1
     7400000: Take 001
     9500000: //RootNode
     13700000: Tiger_mesh
