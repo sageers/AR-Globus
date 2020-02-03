@@ -545,11 +545,11 @@ RectTransform:
   m_Father: {fileID: 2492429611733378910}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -100}
-  m_SizeDelta: {x: 909, y: 424}
-  m_Pivot: {x: 0, y: 0.99999994}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2000, y: 1000}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7529981121181126392
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 575.8, y: 100}
+  m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0, y: 0.99999994}
 --- !u!222 &1580353117374266894
 CanvasRenderer:
@@ -710,3 +710,6 @@ MonoBehaviour:
   txt_Frage_klein: {fileID: 2618902650513359752}
   panel_Frage: {fileID: 5267042244935017779}
   panel_Frage_klein: {fileID: 5304135349228095556}
+  btn_Frage_weiter: {fileID: 0}
+  questQuestion: {fileID: 0}
+  "Anzahlm\xF6glicherFragen": 0
