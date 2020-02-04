@@ -19,6 +19,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LookAtCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuestModeUIEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Store Assets/Polygonal Particles/Assets/Shaders/GradientBackgroundShader.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Vuforia/Scripts/CustomTrackableEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/Outlined_Diffuse.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Zoom.cs" root0="FORCE_HIGHLIGHTING" />
@@ -37,6 +38,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UIEvents.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/FragenQuestModus.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/QuestModeUIEvents.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/Outlined_Diffuse.shader" />
+        <option value="$PROJECT_DIR$/Assets/Zoom.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Zoom.cs" />
       </list>
     </option>
   </component>
@@ -103,6 +107,11 @@
       <workItem from="1580038483842" duration="9651000" />
       <workItem from="1580475687260" duration="175000" />
       <workItem from="1580480449168" duration="4962000" />
+      <workItem from="1578852735146" duration="12840000" />
+      <workItem from="1578878110533" duration="1561000" />
+      <workItem from="1578952563517" duration="74000" />
+      <workItem from="1578952714560" duration="4020000" />
+      <workItem from="1580818533817" duration="329000" />
     </task>
     <servers />
   </component>

@@ -86,6 +86,7 @@
           <e p="MoveAllObjects.cs" t="Include" />
           <e p="QuestModeUIEvents.cs" t="Include" />
           <e p="RayCastHit.cs" t="Include" />
+          <e p="ShowAnimal.cs" t="Include" />
           <e p="ToggleTutorials.cs" t="Include" />
           <e p="UIEvents.cs" t="Include" />
           <e p="Zoom.cs" t="Include" />
