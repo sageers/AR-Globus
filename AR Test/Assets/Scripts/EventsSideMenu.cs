@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,22 @@ public class EventsSideMenu : MonoBehaviour
     public GameObject slider;
 
     public GameObject sidePanel;
+    public Button menuButton;
+    
+    public GameObject QuestUI;
+
+
+
+    public void ActivateQuestMode()
+    {
+        QuestUI.SetActive(true);
+        QuestUI.GetComponentInChildren<QuestModeUIEvents>().newQ();
+    }
+
+    public void DeactivateQuestMode()
+    {
+        QuestUI.SetActive(false);
+    }
     
     
     public void ChangeHeight()
@@ -31,5 +48,9 @@ public class EventsSideMenu : MonoBehaviour
     public void ToggleSideMenü()
     {
         sidePanel.SetActive(!sidePanel.activeSelf);
+
+        menuButton.GetComponentInChildren<TextMeshProUGUI>().text = sidePanel.activeSelf ? "Zurück" : "Menü";
     }
+    
+    
 }
