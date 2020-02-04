@@ -2056,7 +2056,7 @@ Transform:
   m_GameObject: {fileID: 8982393673579954313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.21128, y: 0.21128, z: 0.21128}
   m_Children:
   - {fileID: 5048484660380573246}
   - {fileID: 8793316515812002263}
@@ -5716,10 +5716,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3511900844342570116}
     m_Modifications:
-    - target: {fileID: 1894949056180838, guid: 18e11e0f358c3684abd2b1363d394d68, type: 3}
-      propertyPath: m_Name
-      value: Plant_1_1
-      objectReference: {fileID: 0}
     - target: {fileID: 4190354010491996, guid: 18e11e0f358c3684abd2b1363d394d68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.12391514
@@ -5775,6 +5771,10 @@ PrefabInstance:
     - target: {fileID: 4190354010491996, guid: 18e11e0f358c3684abd2b1363d394d68, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025406282
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894949056180838, guid: 18e11e0f358c3684abd2b1363d394d68, type: 3}
+      propertyPath: m_Name
+      value: Plant_1_1
       objectReference: {fileID: 0}
     - target: {fileID: 23687376399166256, guid: 18e11e0f358c3684abd2b1363d394d68,
         type: 3}
