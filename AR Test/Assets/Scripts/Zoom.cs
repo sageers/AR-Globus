@@ -15,8 +15,11 @@ public class Zoom : MonoBehaviour
     private GameObject currentContinent;
     private GameObject currentAnimals;
     private GameObject currentAnimal;
+    public GameObject continentZoomed;
+    private GameObject currentZoomedContinent;
     private List<GameObject> currentLandmassMeshes;
     private Vector3 currentLandmassPos;
+    private Quaternion currentLandmassRot;
     private Vector3 currentAnimalPos;
     public GameObject earthTrans;
     public Material matDefault;
@@ -31,6 +34,7 @@ public class Zoom : MonoBehaviour
     private bool zoomIn;
     private bool zoomOut;
     private bool zoomAnimalIn;
+    private bool zoomAnimalOut;
     private bool selected;
     private bool animalSelected;
     private bool alphaEnd;
@@ -40,6 +44,8 @@ public class Zoom : MonoBehaviour
     private bool firstSelectedAnimal;
     private bool changedToFlat;
     private bool flatRotationEnd;
+
+    public bool questMode;
 
     private Vector3 oldPosition;
     // Start is called before the first frame update
@@ -66,6 +72,11 @@ public class Zoom : MonoBehaviour
             checkPlatformForTouch();
             checkAnimalSelection();
         }
+
+        if (zoomAnimalIn)
+        {
+            checkPlatformForTouch();
+        }
         
         if (zoomIn)
         {
@@ -80,6 +91,12 @@ public class Zoom : MonoBehaviour
         if (zoomAnimalIn)
         {
             currentAnimal.GetComponent<ShowAnimal>().zoomAnimalIn();
+        }
+        
+        if (zoomAnimalOut)
+        {
+            currentAnimal.GetComponent<ShowAnimal>().zoomAnimalOut();
+            zoomAnimalOut = !currentAnimal.GetComponent<ShowAnimal>().getZoomOutState();
         }
         
         
@@ -160,6 +177,13 @@ public class Zoom : MonoBehaviour
                         currentLandmassMesh = raycastHitUpdate.collider.gameObject;
                         currentLandmass = raycastHitUpdate.collider.transform.parent.gameObject;
                         currentContinent = currentLandmass.transform.parent.gameObject;
+                        for (int g = 0; g < continentZoomed.transform.childCount; g++)
+                        {
+                            if (continentZoomed.transform.GetChild(g).name == currentContinent.name)
+                            {
+                                currentZoomedContinent = continentZoomed.transform.GetChild(g).gameObject;
+                            }
+                        }
                         for (int h = 0; h < currentContinent.transform.childCount; h++)
                         {
                             if (currentContinent.transform.GetChild(h).CompareTag("Animals"))
@@ -175,6 +199,7 @@ public class Zoom : MonoBehaviour
                         //matDefault = currentLandmassMesh.GetComponent<Renderer>().material;
                         //currentLandmassMesh.GetComponent<Renderer>().material = matSelected;
                         currentLandmassPos = currentContinent.transform.localPosition;
+                        currentLandmassRot = currentContinent.transform.localRotation;
                         selected = true;
                     }
                     firstSelected = true;
@@ -215,6 +240,7 @@ public class Zoom : MonoBehaviour
             {
                 if (raycastHitUpdate.collider.CompareTag("Animal"))
                 {
+                    print("animal");
                     if (firstSelectedAnimal)
                     {
                         currentAnimal.GetComponent<ShowAnimal>().unHighlightAnimal();
@@ -258,7 +284,7 @@ public class Zoom : MonoBehaviour
         {
             if (globe.transform.GetChild(i).gameObject != currentContinent)
             {
-                if (!globe.transform.GetChild(i).CompareTag("GlobeTrans"))
+                if (!globe.transform.GetChild(i).CompareTag("GlobeTrans") || !globe.transform.GetChild(i).CompareTag("AnimalsDetailed"))
                 {
                     globe.transform.GetChild(i).gameObject.SetActive(false);
                 }
@@ -328,7 +354,7 @@ public class Zoom : MonoBehaviour
         }
         else
         {
-            if (currentContinent.transform.localScale.x < 3.5f)
+            if (currentContinent.transform.localScale.x < currentZoomedContinent.transform.localScale.x)
             {
                 float speed = 0.1f;
                 currentContinent.transform.localScale = new Vector3(currentContinent.transform.localScale.x + speed,currentContinent.transform.localScale.y  + speed,currentContinent.transform.localScale.z + speed);
@@ -342,11 +368,13 @@ public class Zoom : MonoBehaviour
 
     private void flatRotate()
     {
-        Quaternion target = Quaternion.Euler(-90, 0, 0);
+        Quaternion target = currentZoomedContinent.transform.localRotation;
         //Vector3 current = currentContinent.transform.rotation;
-        currentContinent.transform.rotation = Quaternion.Slerp(currentContinent.transform.rotation, target,  0.05f);
-        if (target.x <= currentContinent.transform.rotation.x + 0.01f && target.x >= currentContinent.transform.rotation.x - 0.01f)
+        currentContinent.transform.rotation = Quaternion.Slerp(currentContinent.transform.rotation, target,  0.06f);
+        
+        if ((target.x <= currentContinent.transform.localRotation.x + 1f && target.x >= currentContinent.transform.localRotation.x - 1f))
         {
+            
             flatRotationEnd = true;
         }
        // Vector3.RotateTowards(currentContinent.transform.rotation, target, 1.0f, 1.0f)
@@ -403,11 +431,13 @@ public class Zoom : MonoBehaviour
          
             fadeOut();
 
-            currentContinent.transform.localPosition = Vector3.MoveTowards(currentContinent.transform.localPosition, Vector3.zero, 0.002f);
-            if (Vector3.Distance(currentLandmass.transform.localPosition, Vector3.zero) < 0.001f)
+            currentContinent.transform.position = Vector3.MoveTowards(currentContinent.transform.position, currentZoomedContinent.transform.position, 0.002f);
+            if (Vector3.Distance(currentLandmass.transform.position, currentZoomedContinent.transform.position) < 0.001f)
             {
+                
                 if (!changedToFlat)
                 {
+                    
                     changeToFlat();
                 }
                 else
@@ -463,8 +493,8 @@ public class Zoom : MonoBehaviour
         }
 
         currentContinent.transform.localPosition = Vector3.MoveTowards(currentContinent.transform.localPosition, currentLandmassPos, 0.05f);
-        
-        Quaternion target = Quaternion.Euler(0, -17.33301f, -1.525879e-05f);
+
+        Quaternion target = currentLandmassRot;
         currentContinent.transform.rotation = Quaternion.Slerp(currentContinent.transform.rotation, target,  0.2f);
         
         hideAnimals();
@@ -590,23 +620,59 @@ public class Zoom : MonoBehaviour
             }
             if (animalSelected && raycastHit.collider.gameObject == currentAnimal)
             {
-                zoomAnimalIn = true;
+                if (!questMode)
+                {
+                    zoomAnimalIn = true;
+                    animalSelected = false;
+                    currentAnimal.GetComponent<Collider>().enabled = false;
+                    currentAnimal.GetComponent<ShowAnimal>().terrain.SetActive(true);
+                    currentAnimal.GetComponent<ShowAnimal>().setParentToTarget();
+                    currentAnimal.GetComponent<ShowAnimal>().unHighlightAnimal();
+                    for(int h = 0; h < currentContinent.transform.childCount; h++)
+                    {
+                        if(currentContinent.transform.GetChild(h).CompareTag("FlatLandmass"))
+                        { 
+                            currentContinent.transform.GetChild(h).gameObject.SetActive(false);
+                        }
+
+                        for (int i = 0; i < currentContinent.transform.GetChild(h).childCount; i++)
+                        {
+                            if (currentContinent.transform.GetChild(h).GetChild(i).gameObject != currentAnimal)
+                            {
+                                currentContinent.transform.GetChild(h).GetChild(i).gameObject.SetActive(false);
+                            }
+                        }
+                    
+                    }
+                }
+                else
+                {
+                    //hier kannst du das rein setzen was der Questmodus machen soll wenn das Tier angetippt wird. 
+                }
+                
+            }
+
+            if (zoomAnimalIn && raycastHit.collider.CompareTag("Terrain"))
+            {
+                zoomAnimalIn = false;
+                zoomAnimalOut = true;
                 animalSelected = false;
-                currentAnimal.GetComponent<ShowAnimal>().terrain.SetActive(true);
-                currentAnimal.GetComponent<ShowAnimal>().Canvas.SetActive(true);
+                currentAnimal.GetComponent<Collider>().enabled = true;
+                currentAnimal.GetComponent<ShowAnimal>().Canvas.SetActive(false);
+                currentAnimal.GetComponent<ShowAnimal>().setParentToOrigin();
                 currentAnimal.GetComponent<ShowAnimal>().unHighlightAnimal();
                 for(int h = 0; h < currentContinent.transform.childCount; h++)
                 {
                     if(currentContinent.transform.GetChild(h).CompareTag("FlatLandmass"))
                     { 
-                        currentContinent.transform.GetChild(h).gameObject.SetActive(false);
+                        currentContinent.transform.GetChild(h).gameObject.SetActive(true);
                     }
 
                     for (int i = 0; i < currentContinent.transform.GetChild(h).childCount; i++)
                     {
                         if (currentContinent.transform.GetChild(h).GetChild(i).gameObject != currentAnimal)
                         {
-                            currentContinent.transform.GetChild(h).GetChild(i).gameObject.SetActive(false);
+                            currentContinent.transform.GetChild(h).GetChild(i).gameObject.SetActive(true);
                         }
                     }
                     

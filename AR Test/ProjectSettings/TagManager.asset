@@ -9,6 +9,9 @@ TagManager:
   - FlatLandmass
   - GlobeTrans
   - Animals
+  - AnimalsDetailed
+  - Terrain
+  - Accessoir
   layers:
   - Default
   - TransparentFX
