@@ -217,8 +217,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30.1
+  m_fontSizeBase: 30.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -856,6 +856,7 @@ MonoBehaviour:
   sidePanel: {fileID: 8164043288685042818}
   menuButton: {fileID: 8164043287844477621}
   QuestUI: {fileID: 641831694410209980}
+  btn_QuestMode: {fileID: 0}
 --- !u!1 &8164043288685042818
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8164043288685042819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1444,6 +1445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7889170324858573260, guid: 4c52994c41be4814bb673a5d4b7c563e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000030517578
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c52994c41be4814bb673a5d4b7c563e, type: 3}

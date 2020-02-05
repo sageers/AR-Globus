@@ -48,8 +48,13 @@ public class QuestModeUIEvents : MonoBehaviour
       
    }
 
-   
-   
+
+   public void stopQuestMode()
+   {
+      panel_Frage.SetActive(false);
+      panel_Frage_klein.SetActive(false);
+      btn_Frage_weiter.gameObject.SetActive(false);
+   }
    
    public void toggleFrage()
    {

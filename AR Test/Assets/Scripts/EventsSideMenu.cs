@@ -7,8 +7,10 @@ using UnityEngine.UI;
 
 public class EventsSideMenu : MonoBehaviour
 {
+    private Color32 blau;
     private void Start()
     {
+        blau = new Color32(88,150,255,255);
         var positionOld = globus.transform.position;
         slider.GetComponent<Slider>().minValue = positionOld.y;
     }
@@ -20,6 +22,8 @@ public class EventsSideMenu : MonoBehaviour
     public Button menuButton;
     
     public GameObject QuestUI;
+    private bool questModeactive = false;
+    public Button btn_QuestMode;
 
 
 
@@ -29,6 +33,26 @@ public class EventsSideMenu : MonoBehaviour
         QuestUI.GetComponentInChildren<QuestModeUIEvents>().newQ();
     }
 
+    public void toggleQuestMode()
+    {
+        if (questModeactive)
+        {
+            QuestUI.GetComponentInChildren<QuestModeUIEvents>().stopQuestMode();
+            btn_QuestMode.GetComponent<Image>().color = Color.white;
+            btn_QuestMode.GetComponentInChildren<TextMeshProUGUI>().color = blau;
+            btn_QuestMode.GetComponentInChildren<TextMeshProUGUI>().text = "Quest-Modus einschalten";
+            questModeactive = false;
+        }
+        else
+        {
+            QuestUI.GetComponentInChildren<QuestModeUIEvents>().newQ();
+            btn_QuestMode.GetComponent<Image>().color = blau;
+            btn_QuestMode.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+            btn_QuestMode.GetComponentInChildren<TextMeshProUGUI>().text = "Quest-Modus ausschalten";
+            questModeactive = true;
+        }
+    }
+    
     public void DeactivateQuestMode()
     {
         QuestUI.SetActive(false);
