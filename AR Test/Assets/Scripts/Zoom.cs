@@ -8,15 +8,18 @@ public class Zoom : MonoBehaviour
 
     public GameObject globe;
 
-    private GameObject cPosition;
+    
     private GameObject earth;
     private GameObject currentLandmass;
     private GameObject currentLandmassMesh;
     private GameObject currentContinent;
     private GameObject currentAnimals;
     private GameObject currentAnimal;
+    public GameObject continentZoomed;
+    private GameObject currentZoomedContinent;
     private List<GameObject> currentLandmassMeshes;
     private Vector3 currentLandmassPos;
+    private Quaternion currentLandmassRot;
     private Vector3 currentAnimalPos;
     public GameObject earthTrans;
     public Material matDefault;
@@ -28,18 +31,40 @@ public class Zoom : MonoBehaviour
     private Material[] transMats;
     private Material[] opaqueMats;
 
+    public GameObject questUI;
+    public GameObject panel;
+    public GameObject panel_k;
+
     private bool zoomIn;
     private bool zoomOut;
     private bool zoomAnimalIn;
+    private bool zoomAnimalOut;
     private bool selected;
     private bool animalSelected;
     private bool alphaEnd;
+    private bool alphaEnd2;
     private bool shrink;
     private bool expand;
     private bool firstSelected;
     private bool firstSelectedAnimal;
     private bool changedToFlat;
     private bool flatRotationEnd;
+    private bool switchedToAnimal;
+
+    private bool globeState;
+    private bool landState;
+    private bool animalState;
+
+    public bool animalDetailZoomedOut;
+
+    private int NoStateNumber = 0;
+    private int globeStateNumber = 1;
+    private int landStateNumber = 2;
+    private int animalStateNumber = 3;
+
+    public bool questMode;
+    
+    
 
     private Vector3 oldPosition;
     // Start is called before the first frame update
@@ -49,68 +74,54 @@ public class Zoom : MonoBehaviour
         //transMats = new Material[2] {mat0, mat1};
         //opaqueMats = new Material[2]{matOp0, matOp1};
 
+        globeState = true;
         matsDefault = new List<Material>();
     }
 
     private void FixedUpdate()
     {
 
-        if (!zoomIn && !zoomOut)
+        if (globeState)
         {
-            checkPlatformForTouch();
+            
             checkSelection();
         }
 
-        if (flatRotationEnd && !zoomAnimalIn)
+        if (landState)
         {
-            checkPlatformForTouch();
             checkAnimalSelection();
         }
+
+        if (zoomAnimalIn && !animalState)
+        {
+            
+            changeToAnimal();
+        }
         
-        if (zoomIn)
+        if (zoomIn && !landState)
         {
            zoomingIn();
 
         }
-        else if(zoomOut)
+        
+        if(zoomOut && !globeState)
         {
             zoomingOut();
         }
 
-        if (zoomAnimalIn)
+        if (zoomAnimalOut && !landState)
         {
-            currentAnimal.GetComponent<ShowAnimal>().zoomAnimalIn();
+            changeAnimalToFlat();
+        }
+
+        if (globeState || landState || animalState)
+        {
+            checkPlatformForTouch();
         }
         
         
-        
+        //print("globeState: " + globeState+ ", landState: " + landState + ", animalState: " + animalState);
     }
-
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Landmass") && !selected && !zoomIn)
-        {
-            selected = true;
-            currentLandmassMesh = other.gameObject;
-            currentLandmass = other.transform.parent.gameObject;
-            matDefault = currentLandmassMesh.GetComponent<Renderer>().material;
-            currentLandmassMesh.GetComponent<Renderer>().material = matSelected;
-            currentLandmassPos = currentLandmass.transform.localPosition;
-        }
-        
-        
-    }
-
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Landmass") && selected && !zoomIn)
-        {
-            currentLandmassMesh.GetComponent<Renderer>().material = matDefault;
-            selected = false;
-        }
-    }*/
 
     private void checkPlatformForTouch()
     {
@@ -160,6 +171,13 @@ public class Zoom : MonoBehaviour
                         currentLandmassMesh = raycastHitUpdate.collider.gameObject;
                         currentLandmass = raycastHitUpdate.collider.transform.parent.gameObject;
                         currentContinent = currentLandmass.transform.parent.gameObject;
+                        for (int g = 0; g < continentZoomed.transform.childCount; g++)
+                        {
+                            if (continentZoomed.transform.GetChild(g).name == currentContinent.name)
+                            {
+                                currentZoomedContinent = continentZoomed.transform.GetChild(g).gameObject;
+                            }
+                        }
                         for (int h = 0; h < currentContinent.transform.childCount; h++)
                         {
                             if (currentContinent.transform.GetChild(h).CompareTag("Animals"))
@@ -175,6 +193,7 @@ public class Zoom : MonoBehaviour
                         //matDefault = currentLandmassMesh.GetComponent<Renderer>().material;
                         //currentLandmassMesh.GetComponent<Renderer>().material = matSelected;
                         currentLandmassPos = currentContinent.transform.localPosition;
+                        currentLandmassRot = currentContinent.transform.localRotation;
                         selected = true;
                     }
                     firstSelected = true;
@@ -299,6 +318,126 @@ public class Zoom : MonoBehaviour
             
         
     }
+    
+    private void fadeIn()
+    {
+        //print("alphaEnd2: " + alphaEnd2);
+        if (alphaEnd2)
+        {
+            for (int i = 0; i < globe.transform.childCount; i++)
+            {
+                if (globe.transform.GetChild(i).gameObject != currentContinent)
+                {
+                    if (!globe.transform.GetChild(i).CompareTag("GlobeTrans"))
+                    {
+                        globe.transform.GetChild(i).gameObject.SetActive(true);
+                    }
+                }
+            }
+
+            alphaEnd2 = false;
+        }
+        else
+        {
+            for (int i = 0; i < earthTrans.transform.childCount; i++)
+            {
+                if (currentContinent.name != earthTrans.transform.GetChild(i).name)
+                {
+                
+                    for (int j = 0; j < earthTrans.transform.GetChild(i).transform.childCount; j++)
+                    {
+                    
+                        GameObject tempGO = earthTrans.transform.GetChild(i).transform.GetChild(j).gameObject;
+                        Renderer tempRend = tempGO.GetComponent<Renderer>();
+                        Material tempMat = tempRend.material;
+                        tempMat.SetFloat("_Mode", 3f);
+            
+                        Color32 col = tempRend.material.GetColor("_Color");
+                        if (col.a <= 240)
+                        {
+                            col.a += 15;
+                        }
+                        else
+                        {
+                            alphaEnd2 = true;
+                            earthTrans.transform.GetChild(i).gameObject.SetActive(false);
+                        }
+            
+                        tempRend.material.SetColor("_Color", col);
+            
+                        tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                        tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                        tempMat.SetInt("_ZWrite", 0);
+                        tempMat.DisableKeyword("_ALPHATEST_ON");
+                        tempMat.EnableKeyword("_ALPHABLEND_ON");
+                        tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                        tempMat.renderQueue = 3000;
+                    }
+                }
+            }
+        }
+        
+
+        
+            
+        
+    }
+
+    private void changeAnimalToFlat()
+    {
+        if (!animalDetailZoomedOut)
+        {
+            currentAnimal.GetComponent<ShowAnimal>().zoomAnimalOut();
+        }
+        else
+        {
+            for(int i = 0; i < currentContinent.transform.childCount; i++)
+            {
+                if (currentContinent.transform.GetChild(i).CompareTag("FlatLandmass") || currentContinent.transform.GetChild(i).CompareTag("Animals"))
+                {
+                    currentContinent.transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+            if (currentContinent.transform.localScale.x < currentZoomedContinent.transform.localScale.x)
+            {
+                float speed = 0.1f;
+                currentContinent.transform.localScale = new Vector3(currentContinent.transform.localScale.x + speed,currentContinent.transform.localScale.y  + speed,currentContinent.transform.localScale.z + speed);
+            }
+            else
+            {
+                showAnimals();
+            }
+        }
+
+    }
+
+    private void changeToAnimal()
+    {
+        if (!switchedToAnimal)
+        {
+            currentAnimal.GetComponent<ShowAnimal>().hideAnimals();
+            if (currentContinent.transform.localScale.x > 0.01f)
+            {
+                float speed = -0.06f;
+                currentContinent.transform.localScale = new Vector3(currentContinent.transform.localScale.x + speed,currentContinent.transform.localScale.y  + speed,currentContinent.transform.localScale.z + speed);
+            }
+            else
+            {
+                for(int i = 0; i < currentContinent.transform.childCount; i++)
+                {
+                    if (currentContinent.transform.GetChild(i).CompareTag("Landmass") || currentContinent.transform.GetChild(i).CompareTag("FlatLandmass") || currentContinent.transform.GetChild(i).CompareTag("Animals"))
+                    {
+                        currentContinent.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                }
+                switchedToAnimal = true;
+            }
+        }
+        else
+        {
+            currentAnimal.GetComponent<ShowAnimal>().zoomAnimalIn();
+        }
+    }
 
     private void changeToFlat()
     {
@@ -328,7 +467,7 @@ public class Zoom : MonoBehaviour
         }
         else
         {
-            if (currentContinent.transform.localScale.x < 3.5f)
+            if (currentContinent.transform.localScale.x < currentZoomedContinent.transform.localScale.x)
             {
                 float speed = 0.1f;
                 currentContinent.transform.localScale = new Vector3(currentContinent.transform.localScale.x + speed,currentContinent.transform.localScale.y  + speed,currentContinent.transform.localScale.z + speed);
@@ -342,11 +481,13 @@ public class Zoom : MonoBehaviour
 
     private void flatRotate()
     {
-        Quaternion target = Quaternion.Euler(-90, 0, 0);
+        Quaternion target = currentZoomedContinent.transform.localRotation;
         //Vector3 current = currentContinent.transform.rotation;
-        currentContinent.transform.rotation = Quaternion.Slerp(currentContinent.transform.rotation, target,  0.05f);
-        if (target.x <= currentContinent.transform.rotation.x + 0.01f && target.x >= currentContinent.transform.rotation.x - 0.01f)
+        currentContinent.transform.rotation = Quaternion.Slerp(currentContinent.transform.rotation, target,  0.06f);
+        
+        if ((target.x <= currentContinent.transform.localRotation.x + 2f && target.x >= currentContinent.transform.localRotation.x - 2f))
         {
+            
             flatRotationEnd = true;
         }
        // Vector3.RotateTowards(currentContinent.transform.rotation, target, 1.0f, 1.0f)
@@ -362,7 +503,11 @@ public class Zoom : MonoBehaviour
     {
         for (int i = 0; i < currentAnimals.transform.childCount; i++)
         {
-            currentAnimals.transform.GetChild(i).GetComponent<ShowAnimal>().showAnimals();
+            if (currentAnimals.transform.GetChild(i).CompareTag("Animal"))
+            {
+                currentAnimals.transform.GetChild(i).GetComponent<ShowAnimal>().showAnimals();
+            }
+            
         }
     }
 
@@ -370,7 +515,10 @@ public class Zoom : MonoBehaviour
     {
         for (int i = 0; i < currentAnimals.transform.childCount; i++)
         {
-            currentAnimals.transform.GetChild(i).GetComponent<ShowAnimal>().hideAnimals();
+            if (currentAnimals.transform.GetChild(i).CompareTag("Animal"))
+            {
+                currentAnimals.transform.GetChild(i).GetComponent<ShowAnimal>().hideAnimals();
+            }
         }
     }
 
@@ -400,14 +548,16 @@ public class Zoom : MonoBehaviour
 
     private void zoomingIn()
     {
-         
-            fadeOut();
+        
+        fadeOut();
 
-            currentContinent.transform.localPosition = Vector3.MoveTowards(currentContinent.transform.localPosition, Vector3.zero, 0.002f);
-            if (Vector3.Distance(currentLandmass.transform.localPosition, Vector3.zero) < 0.001f)
+            currentContinent.transform.position = Vector3.MoveTowards(currentContinent.transform.position, currentZoomedContinent.transform.position, 0.002f);
+            if (Vector3.Distance(currentLandmass.transform.position, currentZoomedContinent.transform.position) < 0.001f)
             {
+
                 if (!changedToFlat)
                 {
+                    
                     changeToFlat();
                 }
                 else
@@ -421,13 +571,10 @@ public class Zoom : MonoBehaviour
                 }
 
             }
-            
-            
-            /*if (Vector3.Distance(globe.transform.position, transform.position) >= 0.6 && changedToFlat)
+            else
             {
-                zoomIn = false;
-                zoomOut = true;
-            }*/
+                
+            }
             
     }
     
@@ -436,10 +583,10 @@ public class Zoom : MonoBehaviour
         if (currentContinent.transform.localScale.x <= 1.1 &&
             Vector3.Distance(currentContinent.transform.localPosition, currentLandmassPos) < 0.07f)
         {
-            if (alphaEnd)
+            if (alphaEnd2)
             {
                 zoomOut = false;
-                
+                changeState(globeStateNumber);
             }
             
         }
@@ -463,110 +610,12 @@ public class Zoom : MonoBehaviour
         }
 
         currentContinent.transform.localPosition = Vector3.MoveTowards(currentContinent.transform.localPosition, currentLandmassPos, 0.05f);
-        
-        Quaternion target = Quaternion.Euler(0, -17.33301f, -1.525879e-05f);
+
+        Quaternion target = currentLandmassRot;
         currentContinent.transform.rotation = Quaternion.Slerp(currentContinent.transform.rotation, target,  0.2f);
         
         hideAnimals();
-        for(int h = 0; h < currentLandmass.transform.childCount; h++)
-        {
-            /*
-            GameObject tempGO = currentLandmass.transform.GetChild(h).gameObject;
-            Renderer tempRend = tempGO.GetComponent<Renderer>();
-            Material tempMat = tempRend.material;
-            tempGO.SetActive(true);
-            tempMat.SetFloat("_Mode", 3f);
-            Color32 col = tempRend.material.GetColor("_Color");
-            if(tempGO.CompareTag("Landmass"))
-            {
-                
-                if (col.a <= 249)
-                {
-                    col.a += 6;
-                }
-                else
-                {
-                    currentLandmass.transform.GetChild(h).gameObject.SetActive(true);
-                }
-                
-            }
-            else
-            {
-                if (col.a >= 6)
-                {
-                    col.a -= 6;
-                }
-                else
-                {
-                    currentLandmass.transform.GetChild(h).gameObject.SetActive(false);
-                }
-            }
-            tempRend.material.SetColor("_Color", col);
-                    
-            tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-            tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-            tempMat.SetInt("_ZWrite", 0);
-            tempMat.DisableKeyword("_ALPHATEST_ON");
-            tempMat.EnableKeyword("_ALPHABLEND_ON");
-            tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-            tempMat.renderQueue = 3000;*/
-        }
-        
-        for (int i = 0; i < earthTrans.transform.childCount; i++)
-        {
-            if (earthTrans.transform.GetChild(i).name != currentContinent.name)
-            {
-                for (int j = 0; j < earthTrans.transform.GetChild(i).transform.childCount; j++)
-                {
-                    if(!alphaEnd){
-                        GameObject tempGO = earthTrans.transform.GetChild(i).transform.GetChild(j).gameObject;
-                        Renderer tempRend = tempGO.GetComponent<Renderer>();
-                        Material tempMat = tempRend.material;
-                        tempMat.SetFloat("_Mode", 3f);
-                        
-                        Color32 col = tempRend.material.GetColor("_Color");
-                        if (col.a <= 249)
-                        {
-                            col.a += 6;
-                        }
-                        else
-                        {
-                            alphaEnd = true;
-                        }
-                        
-                        tempRend.material.SetColor("_Color", col);
-                        
-                        tempMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                        tempMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                        tempMat.SetInt("_ZWrite", 0);
-                        tempMat.DisableKeyword("_ALPHATEST_ON");
-                        tempMat.EnableKeyword("_ALPHABLEND_ON");
-                        tempMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                        tempMat.renderQueue = 3000;
-                    }
-                }
-                
-            }
-
-            if (alphaEnd)
-            {
-                earthTrans.transform.GetChild(i).gameObject.SetActive(false);
-            }
-            
-        }
-
-        if (alphaEnd)
-        {
-            for (int i = 0; i < globe.transform.childCount; i++)
-            {
-                
-                if (!globe.transform.GetChild(i).CompareTag("GlobeTrans"))
-                {
-                    globe.transform.GetChild(i).gameObject.SetActive(true);
-                }
-                
-            }
-        }
+        fadeIn();
     }
 
 
@@ -578,41 +627,168 @@ public class Zoom : MonoBehaviour
         {
             if (selected && raycastHit.collider.gameObject == currentLandmassMesh)
             {
+                changeState(NoStateNumber);
                 zoomIn = true;
                 for (int i = 0; i < currentLandmass.transform.childCount; i++)
                 {
                     currentLandmass.transform.GetChild(i).GetComponent<Renderer>().material = matsDefault[i];
                 }
                 alphaEnd = false;
+                //alphaEnd2 = false;
                 expand = false;
                 changedToFlat = false;
                 flatRotationEnd = false;
             }
             if (animalSelected && raycastHit.collider.gameObject == currentAnimal)
             {
-                zoomAnimalIn = true;
-                animalSelected = false;
-                currentAnimal.GetComponent<ShowAnimal>().terrain.SetActive(true);
-                currentAnimal.GetComponent<ShowAnimal>().Canvas.SetActive(true);
-                currentAnimal.GetComponent<ShowAnimal>().unHighlightAnimal();
-                for(int h = 0; h < currentContinent.transform.childCount; h++)
+                if (panel.activeSelf || panel_k.activeSelf)
                 {
-                    if(currentContinent.transform.GetChild(h).CompareTag("FlatLandmass"))
-                    { 
-                        currentContinent.transform.GetChild(h).gameObject.SetActive(false);
-                    }
+                    //Questmodus
 
-                    for (int i = 0; i < currentContinent.transform.GetChild(h).childCount; i++)
+                    if (questUI.GetComponent<QuestModeUIEvents>().getSolution().Equals(currentAnimal.name, StringComparison.InvariantCultureIgnoreCase))
                     {
-                        if (currentContinent.transform.GetChild(h).GetChild(i).gameObject != currentAnimal)
-                        {
-                            currentContinent.transform.GetChild(h).GetChild(i).gameObject.SetActive(false);
-                        }
+                        questUI.SetActive(true);
+                        questUI.GetComponent<QuestModeUIEvents>().nextQ();
                     }
-                    
+                }
+                else
+                {
+                    changeState(NoStateNumber);
+                    zoomAnimalIn = true;
+                    animalSelected = false;
+                    currentAnimal.GetComponent<ShowAnimal>().terrain.SetActive(true);
+                    currentAnimal.GetComponent<ShowAnimal>().unHighlightAnimal();
                 }
             }
+
+            
             
         }
+        else
+        {
+            if (animalState)
+            {
+                changeState(NoStateNumber);
+                animalModeToLandMode();
+                
+            }
+            if (landState)
+            {
+                changeState(NoStateNumber);
+                landModeToGlobeMode();
+            }
+        }
     }
+
+    public void setGlobeState(bool b)
+    {
+        globeState = b;
+    }
+    
+    public void setLandState(bool b)
+    {
+        landState = b;
+    }
+    
+    public void setAnimalState(bool b)
+    {
+        animalState = b;
+    }
+
+    public void changeState(int state)
+    {
+        if (state == 1)
+        {
+            setGlobeState(true);
+            setAnimalState(false);
+            setLandState(false);
+            resetBools();
+        }
+        if (state == 2)
+        {
+            setGlobeState(false);
+            setAnimalState(false);
+            setLandState(true);
+            resetBools();
+        }
+        if (state == 3)
+        {
+            setGlobeState(false);
+            setAnimalState(true);
+            setLandState(false);
+            resetBools();
+        }
+        if (state == 0)
+        {
+            setGlobeState(false);
+            setAnimalState(false);
+            setLandState(false);
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    private void globeModeToLandMode()
+    {
+        
+    }
+
+    private void landModeToAnimalMode()
+    {
+        
+    }
+
+    private void animalModeToLandMode()
+    {
+        zoomAnimalIn = false;
+        zoomAnimalOut = true;
+        animalSelected = false;
+        currentAnimal.GetComponent<ShowAnimal>().unHighlightAnimal();
+    }
+
+    private void landModeToGlobeMode()
+    {
+        zoomIn = false;
+        zoomOut = true;
+        animalSelected = false;
+        selected = false; 
+        zoomAnimalIn = false;
+        zoomAnimalOut = false;
+        animalSelected = false;
+        alphaEnd = false;
+        //alphaEnd2 = false;
+        shrink = false;
+        expand = false;
+        firstSelected = false;
+        firstSelectedAnimal = false;
+        changedToFlat = false;
+        flatRotationEnd = false;
+        switchedToAnimal = false;
+    }
+
+    private void resetBools()
+    {
+        zoomIn = false;
+        zoomOut = false;
+        animalSelected = false;
+        selected = false; 
+        zoomAnimalIn = false;
+        zoomAnimalOut = false;
+        animalSelected = false;
+        alphaEnd = false;
+        //alphaEnd2 = false;
+        shrink = false;
+        expand = false;
+        firstSelected = false;
+        firstSelectedAnimal = false;
+        changedToFlat = false;
+        flatRotationEnd = false;
+        switchedToAnimal = false;
+        animalDetailZoomedOut = false;
+    }
+    
 }

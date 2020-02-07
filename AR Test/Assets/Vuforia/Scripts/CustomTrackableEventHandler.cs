@@ -17,13 +17,13 @@ namespace Vuforia.Scripts
         protected override void OnTrackingFound()
         {
             base.OnTrackingFound();
-            btn_movbeobjects.interactable = true;
+            //btn_movbeobjects.interactable = true;
         }
 
         protected override void OnTrackingLost()
         {
             base.OnTrackingLost();
-            btn_movbeobjects.interactable = false;
+            //btn_movbeobjects.interactable = false;
         }
     }
 
