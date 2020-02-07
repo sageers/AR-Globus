@@ -118,7 +118,7 @@ public class Zoom : MonoBehaviour
         }
         
         
-        print("globeState: " + globeState+ ", landState: " + landState + ", animalState: " + animalState);
+        //print("globeState: " + globeState+ ", landState: " + landState + ", animalState: " + animalState);
     }
 
     private void checkPlatformForTouch()
@@ -319,6 +319,7 @@ public class Zoom : MonoBehaviour
     
     private void fadeIn()
     {
+        //print("alphaEnd2: " + alphaEnd2);
         if (alphaEnd2)
         {
             for (int i = 0; i < globe.transform.childCount; i++)
@@ -331,6 +332,8 @@ public class Zoom : MonoBehaviour
                     }
                 }
             }
+
+            alphaEnd2 = false;
         }
         else
         {
@@ -348,7 +351,7 @@ public class Zoom : MonoBehaviour
                         tempMat.SetFloat("_Mode", 3f);
             
                         Color32 col = tempRend.material.GetColor("_Color");
-                        if (col.a < 240)
+                        if (col.a <= 240)
                         {
                             col.a += 15;
                         }
@@ -629,7 +632,7 @@ public class Zoom : MonoBehaviour
                     currentLandmass.transform.GetChild(i).GetComponent<Renderer>().material = matsDefault[i];
                 }
                 alphaEnd = false;
-                alphaEnd2 = false;
+                //alphaEnd2 = false;
                 expand = false;
                 changedToFlat = false;
                 flatRotationEnd = false;
@@ -756,7 +759,7 @@ public class Zoom : MonoBehaviour
         zoomAnimalOut = false;
         animalSelected = false;
         alphaEnd = false;
-        alphaEnd2 = false;
+        //alphaEnd2 = false;
         shrink = false;
         expand = false;
         firstSelected = false;
@@ -776,7 +779,7 @@ public class Zoom : MonoBehaviour
         zoomAnimalOut = false;
         animalSelected = false;
         alphaEnd = false;
-        alphaEnd2 = false;
+        //alphaEnd2 = false;
         shrink = false;
         expand = false;
         firstSelected = false;

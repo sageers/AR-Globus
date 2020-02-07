@@ -101,7 +101,7 @@ public class ShowAnimal : MonoBehaviour
     {
         
         
-        print("shown");
+        //print("shown");
         if (Vector3.Distance(transform.position, upReference.transform.position) < 0.01f)
         {
             if (!animalsUnHidden)
