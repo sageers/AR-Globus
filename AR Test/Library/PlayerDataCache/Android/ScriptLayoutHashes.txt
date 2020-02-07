@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-E:/Skuhl/NewSchool/7/AR/AR.apk
+C:/Users/Sarah/Desktop/AR Globus - neu.apk
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
@@ -97,7 +97,7 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 fe29ae2aa38c9237768b1f22cddf449d Assembly-CSharp.dll:Lean.Touch.LeanTwistRotateAxis
 eb27b06c0eaa67d17f6c84edaee630af Assembly-CSharp.dll:Lean.Touch.LeanRoll
 cf1ad9af57e51d3949ba525fb4534068 Assembly-CSharp.dll:Lean.Touch.LeanDestroy
-52343b812da883efc5aace9bd1804d11 Assembly-CSharp.dll:.ShowAnimal
+331dd3788c7f95d14b06f9eda7671ba0 Assembly-CSharp.dll:.ShowAnimal
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 06f0fef534ca4c1d6064fd77a26bf722 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 780e8f682b3221346c034a6712a0fd25 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -334,7 +334,7 @@ fe10de86e42ce80dc24cf76ac1c87c2a Vuforia.UnityExtensions.dll:Vuforia.VuforiaConf
 69167579cf7fcbb2676fc1e675963dcd Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehaviour
 fbbf64dcbe0662e3eda1dec45ea8f895 Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
-55c141c6c6f458beb1aaa1be3cee6cea Assembly-CSharp.dll:.Zoom
+648fcce268065331614632ac9ffbb166 Assembly-CSharp.dll:.Zoom
 330f62fcfa21b2047340eab154927cfc Assembly-CSharp.dll:Lean.Touch.LeanSelectableRendererColor
 0077fc8e4fbae67f80e80ebd534de5a0 Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
 ff1cfd768b207053e073f8002f937b81 Vuforia.UnityExtensions.dll:Vuforia.AnchorInputListenerBehaviour

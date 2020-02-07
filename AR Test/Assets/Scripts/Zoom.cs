@@ -64,9 +64,7 @@ public class Zoom : MonoBehaviour
 
     public bool questMode;
     
-    public GameObject questUI;
-    public GameObject panel;
-    public GameObject panel_k;
+    
 
     private Vector3 oldPosition;
     // Start is called before the first frame update
