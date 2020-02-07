@@ -12,6 +12,8 @@ TagManager:
   - AnimalsDetailed
   - Terrain
   - Accessoir
+  - AnimalRef
+  - Mesh
   layers:
   - Default
   - TransparentFX
