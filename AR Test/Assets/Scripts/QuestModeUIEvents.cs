@@ -26,6 +26,7 @@ public class QuestModeUIEvents : MonoBehaviour
    protected FileInfo fileQuestions = null;
    protected StreamReader reader = null;
    protected string QuestionText = " ";
+   private static string solution = "";
    public int AnzahlmöglicherFragen;
    private bool coroutineRunning = true;
    
@@ -74,7 +75,11 @@ public class QuestModeUIEvents : MonoBehaviour
       StartCoroutine(nextQuestion());
    }
 
-  
+   public string getSolution()
+   {
+       return solution;
+   }
+
    public IEnumerator showNewQuestion()
    {
       
@@ -168,6 +173,8 @@ public class QuestModeUIEvents : MonoBehaviour
       {
          
          textTemp = reader.ReadLine();
+         solution = textTemp.Substring(textTemp.IndexOf("?") + 2);
+         textTemp = textTemp.Remove(textTemp.IndexOf("?") + 1);
          
       }
          reader.Close();

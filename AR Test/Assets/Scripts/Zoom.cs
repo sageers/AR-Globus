@@ -31,6 +31,10 @@ public class Zoom : MonoBehaviour
     private Material[] transMats;
     private Material[] opaqueMats;
 
+    public GameObject questUI;
+    public GameObject panel;
+    public GameObject panel_k;
+
     private bool zoomIn;
     private bool zoomOut;
     private bool zoomAnimalIn;
@@ -44,8 +48,6 @@ public class Zoom : MonoBehaviour
     private bool firstSelectedAnimal;
     private bool changedToFlat;
     private bool flatRotationEnd;
-
-    public bool questMode;
 
     private Vector3 oldPosition;
     // Start is called before the first frame update
@@ -620,7 +622,17 @@ public class Zoom : MonoBehaviour
             }
             if (animalSelected && raycastHit.collider.gameObject == currentAnimal)
             {
-                if (!questMode)
+                if (panel.activeSelf || panel_k.activeSelf)
+                {
+                    //Questmodus
+
+                    if (questUI.GetComponent<QuestModeUIEvents>().getSolution().Equals(currentAnimal.name, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        questUI.SetActive(true);
+                        questUI.GetComponent<QuestModeUIEvents>().nextQ();
+                    }
+                }
+                else
                 {
                     zoomAnimalIn = true;
                     animalSelected = false;
@@ -628,10 +640,10 @@ public class Zoom : MonoBehaviour
                     currentAnimal.GetComponent<ShowAnimal>().terrain.SetActive(true);
                     currentAnimal.GetComponent<ShowAnimal>().setParentToTarget();
                     currentAnimal.GetComponent<ShowAnimal>().unHighlightAnimal();
-                    for(int h = 0; h < currentContinent.transform.childCount; h++)
+                    for (int h = 0; h < currentContinent.transform.childCount; h++)
                     {
-                        if(currentContinent.transform.GetChild(h).CompareTag("FlatLandmass"))
-                        { 
+                        if (currentContinent.transform.GetChild(h).CompareTag("FlatLandmass"))
+                        {
                             currentContinent.transform.GetChild(h).gameObject.SetActive(false);
                         }
 
@@ -642,14 +654,9 @@ public class Zoom : MonoBehaviour
                                 currentContinent.transform.GetChild(h).GetChild(i).gameObject.SetActive(false);
                             }
                         }
-                    
+
                     }
                 }
-                else
-                {
-                    //hier kannst du das rein setzen was der Questmodus machen soll wenn das Tier angetippt wird. 
-                }
-                
             }
 
             if (zoomAnimalIn && raycastHit.collider.CompareTag("Terrain"))

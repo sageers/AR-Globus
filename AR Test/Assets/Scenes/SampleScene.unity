@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8117,6 +8117,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4411197325302968, guid: 10d34ca8daa6caf458bcf9746c06a126,
     type: 3}
   m_PrefabInstance: {fileID: 302409892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &304632580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7522972017376902743, guid: 52f2d84dcccba8a4f87b9e64736918d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8164043288704142844}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &309202144
 GameObject:
@@ -34638,6 +34644,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377056101}
   m_Mesh: {fileID: 4300000, guid: 35fbdaf702f015448a73fc6f063f5c91, type: 3}
+--- !u!1 &1386909259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7557795314131964704, guid: 52f2d84dcccba8a4f87b9e64736918d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8164043288704142844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1387656728
 GameObject:
   m_ObjectHideFlags: 0
@@ -37945,6 +37957,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1555476725}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1557983252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8513485230442588311, guid: 52f2d84dcccba8a4f87b9e64736918d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8164043288704142844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1561130517
 GameObject:
   m_ObjectHideFlags: 0
@@ -39514,7 +39532,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8164043288704142844}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1557983252}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfee7a45cc571154ab5e0b4f4c6894e6, type: 3}
@@ -56445,7 +56463,9 @@ MonoBehaviour:
   earthTrans: {fileID: 5823245207446689787}
   matDefault: {fileID: 0}
   matSelected: {fileID: 2100000, guid: 6279630138e42db46b46efb3f9a9dd00, type: 2}
-  questMode: 0
+  questUI: {fileID: 1557983252}
+  panel: {fileID: 1386909259}
+  panel_k: {fileID: 304632580}
 --- !u!33 &2267409699929472861
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -59244,11 +59264,6 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 00c68f48f1516fe498b985bd535c407d, type: 3}
-    - target: {fileID: 5391163661879250162, guid: 800364bcdc2fe4f4b8bbcbbe8d594c82,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1540599855}
     - target: {fileID: 2376938749837749150, guid: 800364bcdc2fe4f4b8bbcbbe8d594c82,
         type: 3}
       propertyPath: m_Mesh
@@ -59499,6 +59514,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5391163661879250162, guid: 800364bcdc2fe4f4b8bbcbbe8d594c82,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1540599855}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 800364bcdc2fe4f4b8bbcbbe8d594c82, type: 3}
 --- !u!23 &3410961996025822570
@@ -74474,6 +74494,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3731794690042450968, guid: 52f2d84dcccba8a4f87b9e64736918d9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: toggleQuestMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690126220675535135, guid: 52f2d84dcccba8a4f87b9e64736918d9,
+        type: 3}
+      propertyPath: "Anzahlm\xF6glicherFragen"
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690126220675535135, guid: 52f2d84dcccba8a4f87b9e64736918d9,
+        type: 3}
+      propertyPath: questQuestion
+      value: 
+      objectReference: {fileID: 4900000, guid: c2b160c3c88b8d444a7646956974ff18, type: 3}
+    - target: {fileID: 4690126220675535135, guid: 52f2d84dcccba8a4f87b9e64736918d9,
+        type: 3}
+      propertyPath: btn_Frage_weiter
+      value: 
+      objectReference: {fileID: 1468806978}
+    - target: {fileID: 641831694410209980, guid: 52f2d84dcccba8a4f87b9e64736918d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6866422191175392962, guid: 52f2d84dcccba8a4f87b9e64736918d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -74624,11 +74669,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 200
       objectReference: {fileID: 0}
-    - target: {fileID: 641831694410209980, guid: 52f2d84dcccba8a4f87b9e64736918d9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8164043288685042818, guid: 52f2d84dcccba8a4f87b9e64736918d9,
         type: 3}
       propertyPath: m_IsActive
@@ -74769,11 +74809,6 @@ PrefabInstance:
       propertyPath: btn_QuestMode
       value: 
       objectReference: {fileID: 438098501}
-    - target: {fileID: 3731794690042450968, guid: 52f2d84dcccba8a4f87b9e64736918d9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: toggleQuestMode
-      objectReference: {fileID: 0}
     - target: {fileID: 3977799910662239291, guid: 52f2d84dcccba8a4f87b9e64736918d9,
         type: 3}
       propertyPath: m_IsActive
@@ -74824,21 +74859,6 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 36
       objectReference: {fileID: 0}
-    - target: {fileID: 4690126220675535135, guid: 52f2d84dcccba8a4f87b9e64736918d9,
-        type: 3}
-      propertyPath: "Anzahlm\xF6glicherFragen"
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690126220675535135, guid: 52f2d84dcccba8a4f87b9e64736918d9,
-        type: 3}
-      propertyPath: questQuestion
-      value: 
-      objectReference: {fileID: 4900000, guid: c2b160c3c88b8d444a7646956974ff18, type: 3}
-    - target: {fileID: 4690126220675535135, guid: 52f2d84dcccba8a4f87b9e64736918d9,
-        type: 3}
-      propertyPath: btn_Frage_weiter
-      value: 
-      objectReference: {fileID: 1468806978}
     - target: {fileID: 4198280430169368712, guid: 52f2d84dcccba8a4f87b9e64736918d9,
         type: 3}
       propertyPath: m_fontSize
@@ -75453,11 +75473,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.01632878
       objectReference: {fileID: 0}
-    - target: {fileID: 7236058794390422745, guid: d730855dea1ef8c41aa826d2c3d91f97,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1540599855}
     - target: {fileID: 4990327929477199548, guid: d730855dea1ef8c41aa826d2c3d91f97,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -75689,6 +75704,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7236058794390422745, guid: d730855dea1ef8c41aa826d2c3d91f97,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1540599855}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d730855dea1ef8c41aa826d2c3d91f97, type: 3}
 --- !u!23 &8318194716562360212
